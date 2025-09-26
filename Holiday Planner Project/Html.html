@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Planner - Plan your perfect holiday — choose destinations, activities and stay within budget</title>
+    <meta name="description" content="Plan your perfect holiday with our comprehensive travel planning tool. Search destinations, create itineraries, track budget, and organize your dream vacation.">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Holiday Planner - Plan your perfect holiday">
+    <meta property="og:description" content="Create amazing travel itineraries with budget tracking and destination discovery.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link visually-hidden-focusable">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: var(--color-surface);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--color-primary);">
+                <i class="bi bi-compass"></i> Holiday Planner
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link active" data-view="home">Home</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" data-view="search">Destinations</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" data-view="itinerary">My Itinerary</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" data-view="budget">Budget</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Home View -->
+        <section id="home-view" class="view-section active">
+            <!-- Hero Section -->
+            <div class="hero-section text-white">
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h1 class="display-4 fw-bold mb-4">Plan your perfect holiday — choose destinations, activities and stay within budget</h1>
+                            <p class="lead mb-5">Create amazing travel itineraries, discover destinations, track your budget, and organize your dream vacation with our intuitive planning tools.</p>
+                            
+                            <!-- Quick Search Widget -->
+                            <div class="card shadow-lg">
+                                <div class="card-body p-4">
+                                    <form id="quick-search-form" class="row g-3 align-items-end">
+                                        <div class="col-md-3">
+                                            <label for="destination-input" class="form-label small">Where to?</label>
+                                            <input type="text" class="form-control" id="destination-input" placeholder="Search destinations...">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="start-date" class="form-label small">From</label>
+                                            <input type="date" class="form-control" id="start-date">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="end-date" class="form-label small">To</label>
+                                            <input type="date" class="form-control" id="end-date">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="party-size" class="form-label small">Travelers</label>
+                                            <select class="form-select" id="party-size">
+                                                <option value="1">1 person</option>
+                                                <option value="2" selected>2 people</option>
+                                                <option value="3">3 people</option>
+                                                <option value="4">4 people</option>
+                                                <option value="5+">5+ people</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                                <i class="bi bi-search"></i> Start Planning
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Interest Tags -->
+                            <div class="mt-4">
+                                <p class="mb-3">Popular interests:</p>
+                                <div id="interest-tags" class="d-flex flex-wrap justify-content-center gap-2">
+                                    <button class="btn btn-outline-light btn-sm interest-tag" data-interest="beach">
+                                        <i class="bi bi-sun"></i> Beach
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm interest-tag" data-interest="mountains">
+                                        <i class="bi bi-mountain"></i> Mountains
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm interest-tag" data-interest="city">
+                                        <i class="bi bi-building"></i> City
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm interest-tag" data-interest="culture">
+                                        <i class="bi bi-palette"></i> Culture
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm interest-tag" data-interest="adventure">
+                                        <i class="bi bi-lightning"></i> Adventure
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm interest-tag" data-interest="relaxation">
+                                        <i class="bi bi-heart"></i> Relaxation
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Itinerary -->
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-center mb-4">Sample Itinerary</h2>
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <h3 class="card-title">5-Day Coastal Escape</h3>
+                                <p class="text-muted mb-3">
+                                    <i class="bi bi-calendar"></i> Mar 15 - Mar 19, 2024 | 
+                                    <i class="bi bi-people"></i> 2 travelers
+                                </p>
+                                <p class="card-text">Explore beautiful beaches, enjoy water activities, and relax at seaside resorts. Perfect mix of adventure and relaxation.</p>
+                                <button class="btn btn--outline" id="load-sample-btn">
+                                    <i class="bi bi-download"></i> Load Sample
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search/Destinations View -->
+        <section id="search-view" class="view-section">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h1>Discover Destinations</h1>
+                            <button class="btn btn--secondary" id="clear-filters">
+                                <i class="bi bi-x-circle"></i> Clear Filters
+                            </button>
+                        </div>
+                        
+                        <!-- Search and Filters -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="search-input" class="form-label">Search destinations</label>
+                                        <input type="text" class="form-control" id="search-input" placeholder="Type to search...">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="interest-filter" class="form-label">Interest</label>
+                                        <select class="form-select" id="interest-filter">
+                                            <option value="">All</option>
+                                            <option value="beach">Beach</option>
+                                            <option value="mountains">Mountains</option>
+                                            <option value="city">City</option>
+                                            <option value="culture">Culture</option>
+                                            <option value="adventure">Adventure</option>
+                                            <option value="relaxation">Relaxation</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="budget-filter" class="form-label">Budget Range</label>
+                                        <select class="form-select" id="budget-filter">
+                                            <option value="">Any</option>
+                                            <option value="low">$0-50</option>
+                                            <option value="medium">$50-150</option>
+                                            <option value="high">$150+</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="rating-filter" class="form-label">Min Rating</label>
+                                        <select class="form-select" id="rating-filter">
+                                            <option value="">Any</option>
+                                            <option value="4">4+ stars</option>
+                                            <option value="4.5">4.5+ stars</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">&nbsp;</label>
+                                        <button class="btn btn-primary w-100" id="apply-filters">
+                                            <i class="bi bi-funnel"></i> Apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search Results -->
+                        <div id="search-results" class="row g-4" role="region" aria-label="Search results">
+                            <!-- Results will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary View -->
+        <section id="itinerary-view" class="view-section">
+            <div class="container py-4">
+                <!-- Itinerary Header -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg border-0 fw-bold" 
+                                       id="itinerary-title" value="My Holiday Itinerary" 
+                                       aria-label="Itinerary title">
+                                <div class="d-flex gap-2 mt-2">
+                                    <input type="date" class="form-control form-control-sm" id="itinerary-start-date">
+                                    <span class="align-self-center">to</span>
+                                    <input type="date" class="form-control form-control-sm" id="itinerary-end-date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex flex-wrap gap-2 justify-content-md-end">
+                                    <button class="btn btn--outline btn-sm" id="save-itinerary">
+                                        <i class="bi bi-save"></i> Save
+                                    </button>
+                                    <button class="btn btn--outline btn-sm" id="export-json">
+                                        <i class="bi bi-download"></i> Export
+                                    </button>
+                                    <input type="file" id="import-json" accept=".json" style="display: none;">
+                                    <button class="btn btn--outline btn-sm" id="import-btn">
+                                        <i class="bi bi-upload"></i> Import
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" id="share-itinerary">
+                                        <i class="bi bi-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Timeline Section -->
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="mb-0">Your Itinerary</h3>
+                                    <button class="btn btn-primary btn-sm" id="add-day">
+                                        <i class="bi bi-plus"></i> Add Day
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="itinerary-timeline" class="timeline">
+                                    <!-- Timeline days will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Sidebar -->
+                    <div class="col-lg-4">
+                        <!-- Trip Summary -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h4 class="mb-0">Trip Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Total Cost:</span>
+                                    <strong id="total-cost">$0</strong>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Duration:</span>
+                                    <strong id="total-days">0 days</strong>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Items:</span>
+                                    <strong id="total-items">0</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map Placeholder -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Map View</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="bg-light rounded p-4" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <div>
+                                        <i class="bi bi-map display-4 text-muted"></i>
+                                        <p class="text-muted mt-2">Interactive map would show your destinations here</p>
+                                    </div>
+                                </div>
+                                <div id="map-locations" class="mt-3">
+                                    <!-- Map locations will be listed here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget View -->
+        <section id="budget-view" class="view-section">
+            <div class="container py-4">
+                <h1 class="mb-4">Budget Tracker</h1>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Budget Overview -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3 class="mb-0">Budget Overview</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="total-budget" class="form-label">Total Budget</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="total-budget" value="1500" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Spent</label>
+                                        <div class="h4" id="total-spent">$0</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Budget Progress</label>
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar" role="progressbar" id="budget-progress" 
+                                             style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                            0%
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <span>Remaining:</span>
+                                    <strong id="budget-remaining">$1500</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Budget Breakdown -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">Breakdown by Category</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="budget-breakdown">
+                                    <!-- Budget breakdown will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <!-- Per Person Cost -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h4 class="mb-0">Per Person</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <div class="display-6 text-primary" id="per-person-cost">$0</div>
+                                    <small class="text-muted">Based on <span id="travelers-count">2</span> travelers</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Manual Expense -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Add Expense</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="expense-form">
+                                    <div class="mb-3">
+                                        <label for="expense-name" class="form-label">Description</label>
+                                        <input type="text" class="form-control" id="expense-name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="expense-amount" class="form-label">Amount</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="expense-amount" min="0" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="expense-category" class="form-label">Category</label>
+                                        <select class="form-select" id="expense-category" required>
+                                            <option value="accommodation">Accommodation</option>
+                                            <option value="transport">Transport</option>
+                                            <option value="activities">Activities</option>
+                                            <option value="food">Food</option>
+                                            <option value="miscellaneous">Miscellaneous</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="bi bi-plus"></i> Add Expense
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Destination Details Modal -->
+    <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="destinationModalLabel">Destination Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="destinationModalBody">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shareModalLabel">Share Your Itinerary</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="share-url" class="form-label">Share URL</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="share-url" readonly>
+                            <button class="btn btn--outline" type="button" id="copy-url">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-muted small">Share this link to let others view your itinerary!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="toast-container" aria-live="polite" aria-atomic="true">
+        <!-- Toast messages will be added here -->
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
